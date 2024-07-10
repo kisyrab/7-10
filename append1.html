@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script lang="java">
+        $(function(){
+            $(".box").append("<p>append연습- 얘는 맨 뒤로 간다.</p>")
+            $(".box").append("<h1>Bonjour-얘는 그다음에 온다</h1>")
+        
+            $(".p1").append("hi hi hi-얘는 p태그 다음에 온다.")
+            $(".box").prepend("<p>prepend연습-얘는 맨 앞로 간다.</p>")
+    
+        
+        }) //j
+
+    </script>
+
+    <style type="text/css"> 
+        .box{border: 1px solid #000;}
+
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <h1>append jQuery</h1>
+        <p class="p1">HI</p>
+        <img src="img/bg1.jpg" alt="universe">
+        <h1 class="title">astronaut</h1>
+    </div>
+
+
+
+    
+</body>
+</html>

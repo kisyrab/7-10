@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab menu</title>
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script lang="java">
+        $(function(){
+            $(".box h2").click(function(){
+                $(".box h2").removeClass("on")
+                $(this).addClass("on")
+            
+            $(".box h2").next().hide();
+            $(this).next().show();
+            })
+            
+
+
+            $(".tab h2").click(function(){
+                $(".tab h2").removeClass("act");
+                $(this).addClass("act");
+
+                var n=$(this).index();
+                console.log(n);
+
+                $(".cont ul").hide();
+                $(".cont ul").eq(n).show();
+
+            })
+            
+            
+            
+        }) //j
+    </script>
+        
+
+
+
+    <style>
+        *{padding: 0; margin: 0; box-sizing: border-box;}
+        ul,li{list-style: none;}
+        .box{
+            margin: 100px;
+            width: 402px;
+            height: 202px;
+            /* border: 1px solid black; */
+            position: relative;
+        }
+
+        h1{margin: 50px;}
+
+        .box h2{
+            position: absolute;
+            font-size: 14px;
+            width: 80px; height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #ddd;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+        }
+        .box h2.on{background-color: peachpuff;}
+
+        .gal h2{
+            left: 83px;
+        }
+        
+        .box ul{
+            position: absolute;
+            top: 30px; 
+            width: 100%; height: 170px;
+            background-color: peachpuff;
+            border-radius: 0 10px 10px 10px;
+            padding: 20px;
+        }
+        
+        .noti ul{}
+        .gal ul{
+            display: none;
+        }
+
+
+        .box ul li{ margin-bottom: 10px;}
+
+
+
+        .tab{
+            width: 402px;height: 202px;margin: 100px;
+            /* border: 1px solid black; */
+        }
+
+        .title{}
+        .title h2{
+            font-size: 14px;
+            width: 100px; height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background-color: #eee;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .title h2.act{
+            background-color: rosybrown;
+            color: #fff;
+        }
+        
+        .cont{
+            position: relative;
+        }
+        
+        .cont ul{
+            position: absolute;
+            background-color: rosybrown;
+            width: 100%;
+            height: 165px;
+            padding: 20px;
+        }
+
+        .cont ul li{margin-bottom: 10px;}
+
+        .cont2{display: none;}
+
+
+
+
+
+
+
+
+
+
+    
+    </style>
+
+</head>
+<body>
+    <h1>전체를 박스로</h1>
+    <div class="box">
+        <div class="noti">
+            <h2 class="on">공지사항</h2>
+            <ul>
+                <li>공지사항1</li>
+                <li>공지사항2</li>
+                <li>공지사항3</li>
+                <li>공지사항4</li>
+            </ul>
+        </div><!-- noti -->
+        
+        <div class="gal">
+            <h2>갤러리</h2>
+            <ul>
+                <li>img1</li>
+                <li>img2</li>
+                <li>img3</li>
+            </ul>
+        </div> <!-- gal -->
+            
+    </div> <!-- box -->
+
+
+
+
+    <h1>탭영역 분리 방법</h1>
+    <div class="tab">
+        <div class="title">
+            <h2 class="act">공지사항</h2>
+            <h2>갤러리</h2>
+        </div><!-- title -->
+        
+        <div class="cont">
+
+            <ul class="cont1">
+                <li>공지사항1</li>
+                <li>공지사항2</li>
+                <li>공지사항3</li>
+                <li>공지사항4</li>
+            </ul>
+                
+            <ul class="cont2">
+                <li>이미지1</li>
+                <li>이미지2</li>
+                <li>이미지3</li>
+                <li>이미지4</li>
+            </ul>
+        
+        </div> <!-- cont -->
+    
+    </div> <!-- tab -->
+
+</body>
+</html>

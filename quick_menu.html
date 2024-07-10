@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우측 퀵메뉴</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script lang="java">
+        $(function(){
+
+        })//j
+
+        $(window).scroll(function(){
+            var top = $(window).scrollTop()
+            console.log(top);
+            $(".quick").css({top:top})
+        })//.scroll
+
+    </script>
+
+    <style>
+            @font-face {
+        font-family: 'ONE-Mobile-POP';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+        
+        ul, li{list-style: none;}
+        a{text-decoration: none; color: inherit;}
+        body{height: 10000px; background-color: rgb(255, 231, 244);
+        background: #292929}
+        .quick{
+            width: 150px; height: 150px;
+            border-radius: 40px;
+            border: 15px solid rgb(255, 60, 164);
+            background-color: rgb(255, 203, 231);
+            padding: 10px;
+            position: absolute;
+            right: 0; top: 0;
+            margin-top: 200px;
+            margin-right: 50px;
+            transition: all 0.8s;
+            font-family: 'ONE-Mobile-POP';
+        }
+
+        .quick ul li{
+            
+            /* display: inline-block; */
+        }
+        .quick ul li a{
+            display: block;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 20px;
+            text-transform: capitalize;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="quick">
+
+        <ul>
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+            <li><a href="#">menu4</a></li>
+            <!-- <li><a href="#">menu5</a></li> -->
+        </ul>
+
+
+    </div>
+
+</body>
+</html>

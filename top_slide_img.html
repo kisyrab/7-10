@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>위아래로 이미지 슬라이드하기</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script lang="java">
+        $(function(){
+            // setInterval(function(){},3000);
+            var time = setInterval(to_top_moving,2000);
+            
+            var n=0; //index number 0-6
+            function to_top_moving(){
+                if(n==6){
+                    n=0;
+                }else{
+                    n++;
+                }
+                console.log(n);
+                $(".top_move").animate({top: n*(-300)+ "px"},500)
+
+            } //내가 만든 탑무빙함수
+
+            $(".top_move, .control button").hover(function(){
+                clearInterval(time);
+            },function(){
+                time = setInterval(to_top_moving,2000);
+            }) //hover
+
+
+            $(".prev").click(function(){
+                to_down_moving();
+            })
+
+            $(".next").click(function(){
+                to_top_moving();
+            })
+
+
+
+            function to_down_moving(){
+                if(n==0){
+                    n=6;
+                }else{
+                    n--;
+                }
+                console.log(n);
+                $(".top_move").animate({top: n*(-300)+ "px"},500)
+
+            } //내가 만든 다운무빙 함수
+
+
+        })//j
+    </script>
+
+    <style type="text/css">
+
+        *{margin: 0; padding: 0; }
+        ul,li{list-style: none;}
+        a{text-decoration: none; color: inherit;}
+        body{background-color: #000; color: #fff; padding-top: 100px;}
+
+
+        h1{
+            text-align: center;
+            margin: 50px 0;
+            text-transform: uppercase;
+            font-size: 3rem;
+            text-shadow: 0 0 8px #fff;
+            font-family: serif;
+            font-style: italic;
+            font-weight: bolder;
+        }
+
+        .gal{
+            /* border: 1px solid #fff; */
+        }
+        
+        .view{
+            border: 10px double #fff;
+            width: 800px; height: 300px;
+            margin: 10px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .view .top_move{
+            position: absolute;
+            left: 0; top: 0;
+            width: 800px; /* height: 2100px; */
+        }
+        
+        .view .top_move li{
+            width: 800px; height: 300px;
+
+        }
+
+        .control{
+            text-align: center;
+        }
+        .control button{ 
+            padding: 10px 20px; margin: 10px 20px;
+            cursor: pointer;
+            border: none;
+/*             
+            width: 0px;
+            height: 0px;
+            border-bottom: 360px solid #666666;
+            border-left: 0px solid transparent;
+            border-right: 240px solid transparent; */
+
+            /* border-radius: 30px; */
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-weight: 900;
+        }
+        
+
+        .control button:hover{color: #000; background-color: #fff;
+        box-shadow: 0 0 10px #fff;}
+
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>Up & Down Slide Images</h1>
+    
+    
+    <div class="control">
+    <button class="prev">UP</button>
+    </div>
+    
+    <div class="gal">
+        <div class="view">
+            <ul class="top_move">
+                <li><a href="#"><img src="img/001.jpg" alt="car"></a></li>
+                <li><a href="#"><img src="img/002.jpg" alt="car"></a></li>
+                <li><a href="#"><img src="img/003.jpg" alt="car"></a></li>
+                <li><a href="#"><img src="img/004.jpg" alt="car"></a></li>
+                <li><a href="#"><img src="img/005.jpg" alt="car"></a></li>
+                <li><a href="#"><img src="img/006.jpg" alt="car"></a></li>
+                <li><a href="#"><img src="img/007.jpg" alt="car"></a></li>
+            </ul>
+        </div> <!-- view -->
+        
+        <div class="control">
+            <button class="next">DOWN</button>
+        </div>
+
+
+    </div> <!-- gal -->
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Mario</title>
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        $(function(){
+
+        }) //j
+        
+        $(document).scroll(function(){
+
+            var t = $(this).scrollTop()
+            console.log(t)
+
+            if(t>=80){
+                $(".view img").each(function(i){
+                    setTimeout(function(){$(".view img").eq(i).addClass("ani")}, i*500)
+                })//
+            
+            }else{
+                $(".view img").each(function(i){
+                    setTimeout(function(){$(".view img").eq(i).removeClass("ani")}, i*500)
+                })//
+            }//if
+
+            
+            // if(top>200){
+            //     $(".view img").addClass("ani")
+            // }else{
+            //     $(".view img").removeClass("ani")
+            // }
+
+
+            if(t>=100){
+                $(".box").addClass("in");
+                $(".box2").addClass("in");
+            }else{
+                $(".box").removeClass("in");
+                $(".box2").removeClass("in");
+            }
+            
+
+
+
+
+        }) //scroll
+        
+        
+        
+        
+        
+        
+    </script>
+
+
+    <style>
+        @font-face {
+    font-family: 'RixInooAriDuriR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+    *{margin: 0; padding: 0;}
+    .wrap{
+        width: 700px; 
+        margin: 100px auto;
+        border: 8px solid crimson;
+        text-align: center;
+    }
+
+    .view{
+        background-color: dodgerblue;
+        /* border: 1px solid dodgerblue; */
+        padding-top: 700px;
+    }
+
+    .view img{
+        margin-bottom: 20px;
+        transform: scale(0);
+        opacity: 0;
+        transition: all 0.5s;
+    }
+
+    .view img.ani{
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .view img:hover{
+        /* filter: grayscale() blur(5px); */
+        transform: scale(1.2) rotateY(360deg);
+
+    }
+
+    h1{ color: crimson;
+        font-family: 'RixInooAriDuriR'; 
+        font-weight: 100;}
+
+    p{
+        color: crimson;
+        font-family: 'RixInooAriDuriR'; 
+    }
+
+
+    .box{
+        position: relative;
+        left: -800px;
+        opacity: 0;
+        transition: all 2s;
+    }
+
+    .box.in{
+        left: 550px; opacity: 1;
+    }
+    .box img{transform: rotateY(180deg);}
+
+    .box2{
+        position: absolute;
+        right: -800px;
+        top: 1550px;
+        opacity: 0;
+        transition: all 2s 1s;
+    }
+
+    .box2.in{
+        right: 550px;
+        opacity: 1;}
+
+
+    </style>
+
+
+</head>
+<body>
+    <div class="wrap">
+        <h1>스크롤하면 차례대로 실행되는 애니메이션↓↓↓</h1>
+        <div class="view">
+            <img src="img/icon01.png" alt="icon">
+            <img src="img/icon02.png" alt="icon">
+            <img src="img/icon03.png" alt="icon">
+        </div>
+
+        <p>이미지에 마우스를 올려보세요 hover↑↑↑</p>
+    </div>
+
+
+    <div class="box">
+        <img src="img/007.jpg" alt="car">
+    </div>
+
+    <div class="box2">
+        <img src="img/006.jpg" alt="car">
+    </div>
+
+</body>
+</html>
